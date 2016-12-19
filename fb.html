@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" language="javascript" src="jquery-1.8.2.min.js"></script>
+<script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 <title>Facebook Login JavaScript Example</title>
 <meta charset="UTF-8">
 </head>
 <body>
 <script>
-
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -27,7 +26,6 @@
         'into Facebook.';
     }
   }
-
   // This function is called when someone finishes with the Login
   // Button.  See the onlogin handler attached to it in the sample
   // code below.
@@ -36,16 +34,14 @@
       statusChangeCallback(response);
     });
   }
-
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '1470789236267901',
+    appId      : '1188822487868400',
     cookie     : true,  // enable cookies to allow the server to access 
                         // the session
     xfbml      : true,  // parse social plugins on this page
     version    : 'v2.8' // use graph api version 2.8
   });
-
   // Now that we've initialized the JavaScript SDK, we call 
   // FB.getLoginStatus().  This function gets the state of the
   // person visiting this page and can return one of three states to
@@ -57,13 +53,10 @@
   //    your app or not.
   //
   // These three cases are handled in the callback function.
-
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
   });
-
   };
-
   // Load the SDK asynchronously
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -72,7 +65,6 @@
     js.src = "//connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
-
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
@@ -94,18 +86,27 @@
        {
           "name": "Dancyl May Itdang "
         },
-       {
-          "name": "Romelyn Chatto"
+          {
+          "name": "Ar Ar Chatto"
         },
-        {
+          {
           "name": "RJ Badiang"
-        }
-        console.log("names")
+        }, 
 ];
-      let r = response.name;
-      for(let i=0;i<r.length;i++)
+      for(i=0;i<names.length;i++)
+        if(names[i].name == response.name){
+           alert(names[i].name);
+        
+           window.open("http://decodeapp-herokuchatto.herokuapp.com");
+             break;
+        }
+        else{
+          alert("names not found");
+          break;
+          
+        }
       // console.log('Successful login for: ' + response.name +' your email is ');
-   window.open("http://decodeapp-herokuchatto.herokuapp.com");
+  
     });
   }
 </script>
